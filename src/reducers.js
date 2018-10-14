@@ -36,6 +36,13 @@ function posts(
         items: action.posts,
         lastUpdated: action.receivedAt
       })
+    case RECEIVE_POSTS:
+      return Object.assing({}, state, {
+        isFetching: falkse,
+        didInvalidate: false,
+        items: action.posts,
+        lastUpdated: action.receivedAt
+      })
     default:
       return state
   }
