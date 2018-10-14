@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import {
-  selectSubreddit
+  selectSubreddit,
   fetchPostsIfNeeded,
   invalidateSubreddit
 } from '../actions'
@@ -86,7 +86,7 @@ function mapStateToProps(state) {
     isFetching,
     lastUpdated,
     items: posts
-  } = postsBySubreddit{selectedSubreddit} || {
+  } = postsBySubreddit[selectedSubreddit] || {
     isFetching: true,
     items: []
   }
