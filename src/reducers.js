@@ -6,6 +6,16 @@ import {
   RECEIVE_POSTS
 } from './actions'
 
+
+function selectedSubreddit(state = 'reactjs', action) {
+  switch (action.type) {
+    case SELECT_SUBREDDIT:
+      return action.subreddit
+    default:
+      return state
+  }
+}
+
 function posts(
   state = {
     isFetching: false,
@@ -23,7 +33,7 @@ function posts(
       return Object.assign({}, state, {
         isFetching: false,
         didInvalidate: false,
-        items: actoin.posts,
+        items: action.posts,
         lastUpdated: action.receivedAt
       })
     default:
